@@ -6,3 +6,4 @@ flow/ statement block as funcs:
 - try, catch, finally
 - for, while, doWhile
 - pipe, tap, tapLog, tagDebug
+- curry

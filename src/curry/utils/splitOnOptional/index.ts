@@ -36,17 +36,13 @@ type _SplitOnOptional<
           UpdateNonOpt<NonOptional_F, Acc>
         >
     : // INFO: no more optional args - add leftovers from NonOptionalArgs to optional ones
-      UpdateOpt<RemoveOptionalModifier<NonOptionalArgs>, Acc>
+      UpdateOpt<AddOptionalModifier<NonOptionalArgs>, Acc>
   : Acc; // both arrays has same length
 
 // -------------------------------------------------------------
 
-export type SplitOnOptional<
-  Params extends any[],
-  Acc extends Accumulator = { nonOpt: []; opt: [] }
-> = _SplitOnOptional<
-  //
-  AddOptionalModifier<Params>,
+export type SplitOnOptional<Params extends any[]> = _SplitOnOptional<
+  RemoveOptionalModifier<Params>,
   Params,
-  Acc
+  { nonOpt: []; opt: [] }
 >;

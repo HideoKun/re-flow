@@ -10,13 +10,13 @@ function multiply(a: number, b: string, c?: boolean): string {
 const curriedMultiply = curry(multiply);
 //    ^?
 
-const AllArgsPassed = curriedMultiply(1 as number, "a" as string);
+const AllArgsPassed = curriedMultiply(1 as number, "a" as string, true);
 //    ^?
 
 const A = curriedMultiply(1 as number); // wider + why func is tracking literals?
 //    ^?
 
-const B = A("1" as string);
+const B = A("1" as string, true as boolean);
 //    ^?
 
 const C_withOpt = B(true);
@@ -43,11 +43,5 @@ const ramdaAllArgsPassed = ramdaCurriedMultiply(
 const ramdaA = ramdaCurriedMultiply(1 as number); // wider + why func is tracking literals?
 //    ^?
 
-const ramdaB = ramdaA("1" as string);
-//    ^?
-
-const ramdaC_withOpt = ramdaB(true);
-//    ^?
-
-const ramdaC_withoutOpt = ramdaB(true);
+const ramdaB = ramdaA("1" as string, true);
 //    ^?

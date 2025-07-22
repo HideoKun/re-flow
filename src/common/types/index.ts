@@ -1,8 +1,8 @@
-export type AddOptionalModifier<T> = {
+export type RemoveOptionalModifier<T> = {
   [K in keyof T]-?: T[K];
 };
 
-export type RemoveOptionalModifier<T> = {
+export type AddOptionalModifier<T> = {
   [K in keyof T]?: T[K];
 };
 
